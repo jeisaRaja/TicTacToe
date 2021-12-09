@@ -1,0 +1,23 @@
+body{
+    display: flex;
+    height: 1000px;
+    background-color: beige;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    /* position: absolute;
+    top: 25%; */
+    display: grid;
+    height: 50vh;
+    width: 25vw;
+    grid-template-columns: repeat(3,1fr);
+
+}
+
+.board_item{
+    background-color: rgb(219, 219, 168);
+    border-style: solid;
+    border-color: black;
+}
