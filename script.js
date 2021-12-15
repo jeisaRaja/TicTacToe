@@ -1,6 +1,6 @@
 const body = document.querySelector('body');
 const board = body.querySelector('.board');
-
+const a = "a"
 
 const gameboard = (()=>{
     let array = ["","","","","","","","",""];
