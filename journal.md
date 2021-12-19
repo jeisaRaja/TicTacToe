@@ -1,4 +1,4 @@
-# THIS IS ALL THE THOUGHT PROCESS I DID FOR THIS PROJECT
+# Journal
 
 ## 15 December 2021
 p1 = player()
