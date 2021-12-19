@@ -1,6 +1,6 @@
-* THIS IS ALL THE THOUGHT PROCESS I DID FOR THIS PROJECT *
+# THIS IS ALL THE THOUGHT PROCESS I DID FOR THIS PROJECT
 
-# 15 December 2021
+## 15 December 2021
 p1 = player()
 p2 = player()
 
@@ -14,7 +14,7 @@ inside the p1 class there should be function that calls setBoard(role,index)
 
 if 1 square is already taken by 'X' or 'O' it cannot be changed
 
-# 19 December 2021
+## 19 December 2021
 Remember to set max player count = 2
 because we know that player 1 will always play 'X', we do not need
 to somehow make connection between them, we can just check if 'X' is
