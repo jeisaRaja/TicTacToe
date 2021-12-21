@@ -39,3 +39,7 @@ I think we don't need isWinning function in each player class
 we just need to make isWinning in gameboard class and then check for wether player with sign 'X' win or sign 'O' win.
 
 I fixed the problem where player can change the sign in board even if the board had been signed previosly.
+
+technically the project is done, 
+player 1 and 2 can play.
+just need form to kinda register if player want to play. and then need to handle the error of undefined read '0'
