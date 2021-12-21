@@ -3,7 +3,7 @@ const board = body.querySelector('.board');
 let j = 0
 
 const gameboard = (()=>{
-    let array = ["","","","","","","","",""];
+    let array = [" "," "," "," "," "," "," "," "," "];
     function update(){
         for(let n=0 ; n<9 ; n++){
             let array_div = document.createElement('div');
@@ -21,17 +21,18 @@ const gameboard = (()=>{
     update()
     const setBox = (index,sign)=>{
         const checkDiv = document.getElementById(index);
-        if(checkDiv.textContent==""){
+        if(checkDiv.textContent==" "){
             array[index] = sign;
             clear()
             update()
             i++;
+            win()
         }
     }
     const getBox = ()=>{
         return array
     }
-    const win = () => {
+    function win() {
         const winningAxes = [
             [0,1,2],
             [3,4,5],
@@ -44,21 +45,16 @@ const gameboard = (()=>{
         ];
         for(let y=0; y<9; y++){
             let winningAxis = winningAxes[y];
-            const axisOne = winningAxis[0];
-            const axisTwo = winningAxis[1];
-            const axisThree = winningAxis[2];
-            if( array[winningAxis[0]] == array[winningAxis[1]] == array[winningAxis[2]]){
-                const winRole = array[winningAxis[0]];
-                console.log(array[winningAxis[0]]);
-                return;
-                // if(winRole=='X'){
-                //     console.log('Player 1 Win!')
-                //     return
-                // }
-                // else if(winRole=='O'){
-                //     console.log('Player 2 Win!')
-                //     return
-                // }
+            const axisOne = array[winningAxis[0]];
+            const axisTwo = array[winningAxis[1]];
+            const axisThree = array[winningAxis[2]];
+            if(axisOne==axisTwo && axisTwo==axisThree){
+                if(axisTwo=='O'){
+                    console.log('player 2 win!');
+                }
+                else if(axisTwo=='X'){
+                    console.log('player 1 win!');
+                }
             }
             
         }
