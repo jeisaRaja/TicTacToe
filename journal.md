@@ -29,3 +29,13 @@ Mouse click function to update the gameboard already implemented
 
 Next mission : implement player 1 and player 2 plays
 
+## 21 December 2021
+Already implemented the odd even to assign who plays
+if number i is even player 1 plays
+if number i is odd player 2 plays
+Need to check who is winning
+
+I think we don't need isWinning function in each player class
+we just need to make isWinning in gameboard class and then check for wether player with sign 'X' win or sign 'O' win.
+
+I fixed the problem where player can change the sign in board even if the board had been signed previosly.
