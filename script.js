@@ -1,6 +1,6 @@
 const body = document.querySelector('body');
 const board = body.querySelector('.board');
-let j = 0
+const announcement= body.querySelector('.announcement')
 
 const gameboard = (()=>{
     let array = [" "," "," "," "," "," "," "," "," "];
@@ -50,34 +50,46 @@ const gameboard = (()=>{
             const axisThree = array[winningAxis[2]];
             if(axisOne==axisTwo && axisTwo==axisThree){
                 if(axisTwo=='O'){
-                    console.log('player 2 win!');
+                    removeListener()
+                    announce('Player 2 win!');
                 }
                 else if(axisTwo=='X'){
-                    console.log('player 1 win!');
+                    removeListener()
+                    announce('Player 1 win!');
                 }
             }
             
         }
             
     };
+
+    function removeListener(){
+        const array_div = document.querySelectorAll('.board_item')
+        array_div.forEach(div=>{
+            div.removeEventListener('click', sendToBoard, true)
+        })
+    }
     
 
     return {setBox, getBox, array, win};
 })();
 
 const Player = (name,role)=>{
-    function isWinning(){
-        return false
-    }
-    // const play = ()=>{
-    //     boardListener();
-    // }
+
     return {name,role,isWinning}
 }
 let i = 0;
 function boardListener(){
     const array_div = document.querySelectorAll('.board_item')
-    array_div.forEach(div=>div.addEventListener('click', sendToBoard));
+    array_div.forEach(div=>div.addEventListener('click', sendToBoard,true));
+
+}
+
+function plays(role){
+    const index = 1;
+    gameboard.setBox(index,role)
+}
+
 function sendToBoard(e){
     const index = parseInt(e.path[0].id)  
     if(i%2==0){
@@ -88,33 +100,16 @@ function sendToBoard(e){
     }
     console.log(i)
 }
-}
 
-function plays(role){
-    const index = 1;
-    gameboard.setBox(index,role)
+function announce(msg){
+    const h1 = document.createElement('h1');
+    h1.textContent = msg;
+    h1.classList.add('msg')
+    announcement.appendChild(h1);
 }
-
 
 const player1_role = 'X'
 const player2_role = 'O'
 
 const player1 = Player('Jeisa', player1_role)
 const player2 = Player('Aldo', player2_role)
-
-
-
-while(j<5){
-    if(j%2==0 && gameboard.win() == false){
-        // gameboard.setBox(3, 'O')
-        j++
-    }
-    else if(j%2!==0 && gameboard.win() == false){
-        // gameboard.setBox(2,'X')
-        j++
-    }
-    else{
-        break
-    }    
-}
-
